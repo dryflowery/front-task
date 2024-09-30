@@ -15,5 +15,21 @@ document.addEventListener("DOMContentLoaded",
                 }
             )
         }
+
+        let sd = document.querySelectorAll(".sideMenu");
+
+        for(let i = 0; i < sd.length; i++) {
+            sd[i].addEventListener("mouseenter",
+                function(e) {
+                    sd[i].style.backgroundColor = "#F0F0F0"; 
+                }
+            )
+
+            sd[i].addEventListener("mouseleave",
+                function(e) {
+                    sd[i].style.backgroundColor = "#FFFFFF";
+                }
+            )
+        }
     }
 )
