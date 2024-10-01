@@ -1,0 +1,152 @@
+ul{
+    list-style: none;
+}
+
+/* 아이콘과 아이콘(아래) 간격 */
+li{
+    margin-bottom: 40px;
+}
+
+ #container{
+    width: 1900px;
+    margin: 0;
+    padding:0;
+    
+  }
+  
+  #sideMenu{
+    width: 350px;
+    height: 900px;
+    float: left;
+  }
+  
+  #contents{
+    width: 1550px;
+    height: 900px;
+  }
+
+/* 인스그램 로고 위치 */
+#mainLogo{
+    position: absolute;
+    left: 20px;
+    top: 40px;
+}
+
+/* 홈, 검색등 로고 위치 */
+#sideLogo{
+    position: absolute;
+    left: -15px;
+    top: 120px;
+
+}
+
+/* 이미지 원형으로 표시 */
+#circle{
+    border-radius: 50%;
+}
+
+/* 세로 구분선 */
+#verticalLine {
+    width: 1px; 
+    height: 900px;
+    background-color: #d3d3d3; 
+    float: left; 
+    margin-left: 5px;
+    
+    position: absolute;
+    left: 350px;
+}
+
+/* 가로 구분선 */
+#divider {
+    width: 1050px; /* 전체 너비 */
+    height: 2px; /* 구분선 두께 */
+    background-color: #d3d3d3; 
+    margin: 20px 0; /* 상하 여백 */
+
+    position: absolute;
+    left: 700px;
+    top: 450px;
+}
+
+/* 메인 프로필 이미지 */
+#contentsImage{
+    position: absolute;
+    left: 750px;
+    top: 80px;
+}
+
+/* 메인 이미지 옆 텍스트 구역 */
+#mainTextArea{
+    position: absolute;
+    left: 1050px;
+    top: 60px;
+}
+
+/* 오른쪽 간격 */
+#rightMargin{
+    margin-right: 10px;
+}
+
+/* 오른쪽 간격(구분선) */
+#rightMargin2{
+    margin-right: 40px;
+}
+
+/* 하이라이트 추가 버튼 */
+#plush{
+    position: absolute;
+    left: 750px;
+    top: 300px;
+}
+
+/* 구분선 아래 텍스트 위치 */
+#dividerTextP{
+    position: absolute;
+    left: 400px;
+    top: 15px;
+    font-size: 14px;
+}
+
+/* 아이콘 크기 */
+.sideFont{
+    font-size: 20px;
+}
+
+/* 아이콘과 텍스트 사이 간격 & 텍스트 크기 */
+.textMargin{
+    margin-right: 10px;
+    font-size: 25px;
+}
+
+/* 이미지 옆 텍스트 가운데 정렬 */
+.imageSort{
+    display: flex;              
+    align-items: center;
+}
+
+/* 이미지 옆 텍스트 */
+.profileText{
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+/* 검은색 테두리 추가 */
+.circleImageT{
+    border: 3px solid black;   
+    border-radius: 50%;
+}
+
+/* 글자 크기 설정 */
+.mainProfileText{
+    font-size: 20px; 
+    color: black;
+    margin-right: 20px;
+}
+
+/* 글자 크기 설정 */
+.sebProfileText{
+    font-size: 16px; 
+    color: black;
+    margin-right: 20px;
+}

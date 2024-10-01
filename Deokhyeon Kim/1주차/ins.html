@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CSS 레이아웃 - 3단 레이아웃</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/bcb47f8c7f.js" crossorigin="anonymous"></script>
+        
+        <!-- 폰트 -->
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+            .noto{
+                    font-family: "Noto Sans KR", sans-serif;
+                    font-optical-sizing: auto;
+                    font-weight: 200;
+                    font-style: normal;
+            }    
+        </style>
+
+	</head>
+	<body class="noto">
+		<div id="container">
+            <div id = "verticalLine"></div>
+			<div id="sideMenu">
+                <div id = "mainLogo">
+                    <img src="image/intagram.PNG" style="width: 120px; height: auto;">
+                </div>
+				
+                <div id ="sideLogo">
+                    <ul>
+                        <li class="listMargin sideFont"><i class="fa-solid fa-house textMargin"></i>홈</li>
+                        <li class="listMargin sideFont"><i class="fa-solid fa-magnifying-glass textMargin"></i>검색</li>
+                        <li class="listMargin sideFont"><i class="fa-regular fa-compass textMargin"></i>탐색</li>
+                        <li class="listMargin sideFont"><i class="fa-solid fa-clapperboard textMargin"></i>릴스</li>
+                        <li class="listMargin sideFont"><i class="fa-solid fa-location-arrow textMargin" ></i>메시지</li>
+                        <li class="listMargin sideFont"><i class="fa-regular fa-heart textMargin"></i>알림</li>
+                        <li class="listMargin sideFont"><i class="fa-regular fa-square-plus textMargin"></i>만들기</li>
+                        <li class="imageSort"><img id = "circle" class="circleImageT" src="image/insta.jpg" style="width: 40px;" ><span class="profileText">프로필</span></li>
+                        <br>
+                        <br>
+                        <br>
+                        <li class="imageSort"><img id = "circle" src="image/Threads.PNG"><span class="profileText">Threads</span></li>
+                        <li class="listMargin sideFont"><i class="fa-solid fa-bars textMargin"></i>더 보기</li>
+                    </ul>
+                </div>
+      		</div>
+
+            <div id = "contents">
+
+                <div id = "contentsImage">
+                    <img id ="circle" src="image/insta.jpg" style="width: 180px;">
+                </div>
+
+                <div id = "mainTextArea">
+                    <p class="imageSort"><span class="mainProfileText"><b>duck.h01</b></span><img id = "rightMargin" src="image/p1.PNG"> <img src="image/p2.PNG"></p>
+                    <p><span class="sebProfileText">게시물 <b>0</b></span> <span class="sebProfileText">팔로워 <b>87</b></span> <span class="sebProfileText">팔로우 <b>101</b></span></p>
+                    <br>
+                    <p class="sebProfileText"><b>김덕현</b></p>                   
+                </div>
+
+                <div id = "plush">
+                    <img src="image/s1.PNG">
+                </div>
+
+                <div id ="divider">
+                    <p id="dividerTextP"> 
+                        <i class="fa-solid fa-table-cells-large"></i><span id="rightMargin2"> 게시물</span>
+                        <i class="fa-regular fa-bookmark"></i><span id="rightMargin2"> 저장 됨</span>
+                        <i class="fa-solid fa-user-tag "></i> 태그 됨
+                    </p>
+                </div>
+            </div>
+		</div>
+	</body>
+</html>
