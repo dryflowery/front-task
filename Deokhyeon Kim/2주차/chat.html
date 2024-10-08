@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stack Visualization</title>
+  <style>
+    .stack-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      width: 100px;
+      height: 200px;
+      border: 2px solid black;
+    }
+
+    .stack-item {
+      width: 80px;
+      height: 30px;
+      background-color: lightblue;
+      text-align: center;
+      line-height: 30px;
+      margin: 2px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Stack Visualization</h1>
+
+  <div class="stack-container">
+    <div id="stack" class="stack"></div>
+  </div>
+
+  <input type="text" id="pushValue" placeholder="Enter value">
+  <button onclick="pushToStack()">Push</button>
+
+  <script>
+    let stack = [];
+
+    function pushToStack() {
+      const value = document.getElementById('pushValue').value;
+      if (value) {
+        stack.push(value); // 스택에 값 추가
+        updateStackView(); // 화면에 스택 업데이트
+      }
+    }
+
+    function updateStackView() {
+      const stackElement = document.getElementById('stack');
+      stackElement.innerHTML = ''; // 기존 스택 요소 초기화
+      stack.forEach(item => {
+        const stackItem = document.createElement('div');
+        stackItem.classList.add('stack-item');
+        stackItem.textContent = item;
+        stackElement.appendChild(stackItem); // 스택 요소 추가
+      });
+    }
+  </script>
+</body>
+</html>
+

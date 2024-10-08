@@ -1,0 +1,160 @@
+  /* 테이블 */
+  table {
+    border-collapse: separate; /* 테두리 겹치지 않게 설정 */
+    border-spacing: 10px;
+  }
+
+  /* 셀 */
+  td {
+    width: 50px; 
+    height: 50px; 
+    border: 3px solid black; 
+    text-align: center; /* 텍스트 가운데 정렬 */
+    vertical-align: middle; /* 텍스트 수직 가운데 정렬 */
+  }
+
+  a {
+    text-decoration: none; /* 밑줄 없애기 */
+    color: purple;
+  }
+
+  /* 메인 컨테이너 */
+ .container {
+    width: 1500px;
+    height: 630px;
+    display:flex; /* 플렉스 컨테이너 지정 */
+    background-color:#eee;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 배치 */
+  #opt1{
+    flex-direction: column;
+  }
+
+  /* 헤더 컨테이너 */
+  #header{
+    width: 100%;
+    height: 80px;
+    background-color: rgb(13, 104, 13);
+  }
+
+  /* 헤더 아래 버튼 컨테이너 */
+  #button1{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(178, 202, 178);
+  }
+
+  /* 메인 콘텐츠 컨테이너 */
+  #main{
+    width: 100%;
+    height: 450px;
+  }
+
+  /* 메인 아래 버튼 컨테이너 */
+  #button2{
+    width: 100%;
+    height: 45px;
+    background-color: rgb(178, 202, 178);
+  }
+  
+  /* 바닥 컨테이너 */
+  #footer{
+    width: 100%;
+    height: px;
+    background-color: rgb(13, 104, 13);
+  }
+  
+  /* top의 위치(정사각형) */
+  #locationTop{
+    position: absolute;
+    left: 250px;
+    top: 170px;
+  }
+
+  /* top 텍스트의 위치 */
+  #topText{
+    position: absolute;
+    left: 210px;
+    top: 170px;
+  }
+
+    /* 헤더 컨테이너에 들어가는 텍스트 */
+  .box1_text{
+    font-family: Arial, sans-serif;
+    font-size: 40px; 
+    font-weight: bold;
+    margin: 5px;
+    margin-left: 15px;
+    margin-top: 13px;
+    color: yellow;
+  }
+
+  /* top의 정사각형 */
+  .square{
+    width: 50px; 
+    height: 50px; 
+    border: 5px solid black; 
+    background-color: transparent; 
+    margin: 5px;
+  }
+
+  /* top의 정사각형 내부에 들어가는 텍스트 */
+  .text{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  /* table의 위치 */
+  .locationTable{
+    position: absolute;
+    left: 100px;
+    top: 300px;
+  }
+
+  /* table 아래 인덱스 번호 */
+  .index {
+    text-align: center; /* 인덱스 텍스트 가운데 정렬 */
+    margin-top: 5px; /* 위쪽 여백 추가 */
+    display: inline-block; /* 인라인 블록으로 설정 */
+    width: 67px;
+    
+  }
+
+  /* 테이블 아래 인덱스 위치 */
+  .locationIndex{
+    position: absolute;
+    left: 100px;
+    top: 370px;
+  }   
+
+  /* 애니메이션 스피드 위치 */
+  .locationAni{
+    position: absolute;
+    left: 360px;
+    top: 585px;
+  }
+
+  #mySlider {
+    width: 200px; /* 슬라이더의 너비 설정 */
+    height: 20px; /* 슬라이더의 높이 설정 */
+    background: #ddd; /* 슬라이더의 배경 색상 */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .locationW{
+    position: absolute;
+    left: 530px;
+    top: 570px;
+  }
+
+  #footetT{
+    font-family: Arial, sans-serif;
+    font-size: 25px; 
+    margin-left: 15px;
+    margin-top: 15px;
+  }

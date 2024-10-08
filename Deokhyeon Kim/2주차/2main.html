@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>2주차 과제</title>
+        <link rel="stylesheet" href="style.css">
+        
+    </head>
+
+    <body>
+        <!-- 컨테이너 -->
+        <div class="container" id="opt1">
+
+            <!-- 헤더 컨테이너 -->
+            <div id ="header">
+                <p class="box1_text">Stack (Array Implementaion)</p>
+            </div>
+            
+            <!-- 헤더 아래 버튼 컨테이너 -->
+            <div id="button1">
+                <input type="text" name="" id="push" value="" size="5">
+                <button id = "pushButton">Push</button>
+                <button id="popButton">Pop</button>
+                <button id="clearButton">Clear Stack</button>
+            </div>
+                
+            <!-- 메인 콘텐츠 컨테이너 -->
+            <div id="main">
+
+                <!-- top 텍스트와 박스 -->
+                <p id="topText">top</p>
+                <div id="locationTop" class="square">
+                    <!-- id text는 자바스크립트에서 요소를 가져올떄 식별하기 위해 추가한거 -->
+                    <p class="text" id="text">0</p>     
+                </div>
+                
+                <!-- 테이블 구성 -->
+                <table id="myTable" class="locationTable"></table> 
+                <div id="indexContainer" class="locationIndex"></div>
+            </div>
+
+
+            <div id="button2">
+                <button>Skip Back</button>
+                <button>Step Back</button>
+                <button>Pause</button>
+                <button>Step Foward</button>
+                <input type="range" name="" id="mySlider" >
+                <div class="locationAni">Animaton Speed</div>
+                <div class="locationW">W: <input type="text" name="" id="" size="5"></div>
+            </div>
+
+            <div id="footer">
+                <a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" id="footetT">Visit Example</a>
+            </div>
+        </div>
+
+        <script src="makeT.js"></script>
+        <script src="push.js"></script>
+        <script src="pop.js"></script>
+        <script src="clear.js"></script>
+    </body>
+
+</html>
