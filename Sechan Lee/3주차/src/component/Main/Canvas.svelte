@@ -1,7 +1,6 @@
 <script>
     import { numArr } from '../../lib/store';
     import { animationWorking } from '../../lib/store';
-    import Element from './Element.svelte';
 
     let graphLeft = [];
     let indexLeft = [];
@@ -74,15 +73,16 @@
                 }
                 else {
                     // 현재 element는 하늘색, 오른쪽 element는 초록색
-                    graphElements[j].style.backgroundColor = "#ADD8E6";
                     graphElements[j + 1].style.backgroundColor = "#008000";
+                    await delay(500);
+                    graphElements[j].style.backgroundColor = "#ADD8E6";
                     await delay(500);
                 }
             }
 
             // 정렬 완료 된 element 주황색
             graphElements[i].style.backgroundColor = "#ffa500"
-            await delay(1250);
+            await delay(1000);
         }
 
         graphElements.forEach(element => {
