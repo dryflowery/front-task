@@ -1,8 +1,13 @@
 <script>
     import { fly } from 'svelte/transition';
+    import { animationWorking } from '../../../../lib/store';
     
     let isVisible = false;
 
+    $: if ($animationWorking) {
+        isVisible = true;
+    }
+    
     const toggleDropdown = () => {
         isVisible = !isVisible; 
     }

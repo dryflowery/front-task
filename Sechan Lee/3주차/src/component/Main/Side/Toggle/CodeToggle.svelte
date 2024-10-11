@@ -1,7 +1,12 @@
 <script>
     import { fly } from 'svelte/transition';
-    
+    import { codeColor, animationWorking } from '../../../../lib/store';
+
     let isVisible = false;
+
+    $: if ($animationWorking) {
+        isVisible = true;
+    }
 
     const toggleDropdown = () => {
         isVisible = !isVisible; 
@@ -20,7 +25,17 @@
     
     {#if isVisible}
         <div id='dropdown' on:click={stopPropagation} transition:fly={{ x: 45, duration: 750 }}>
-    
+            <div class='code' style="background-color: {$codeColor[0]};">do</div>
+
+            <div class='code' style="background-color: {$codeColor[1]};">&nbsp;&nbsp; <b>swapped</b> = false</div>
+            <div class='code' style="background-color: {$codeColor[1]};">&nbsp;&nbsp; for i = 1 to indexOfLastUnsortedElement-1</div>
+
+            <div class='code' style="background-color: {$codeColor[2]};">&nbsp;&nbsp;&nbsp;&nbsp; if leftElement &gt; rightElement</div>
+
+            <div class='code' style="background-color: {$codeColor[3]};">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; swap(leftElement, rightElement)</div>
+            <div class='code' style="background-color: {$codeColor[3]};">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>swapped</b> = true; ++swapCounter</div>
+
+            <div class='code' style="background-color: {$codeColor[4]};">while <b>swapped</b></div>
         </div>
     {/if}
 </main>
@@ -51,6 +66,7 @@
     
     #dropdown {
         display: flex; 
+        flex-direction: column; 
         position: absolute;
         top: 0;
         left: -420px; 
@@ -59,5 +75,15 @@
         background-color: #52BC69;
         z-index: 0;
         cursor: default;
+    }
+
+    #dropdown > div {
+        padding: 6px 0px 6px 10px;
+    }
+
+    .code {
+        font-size: 13px;
+        color: white;
+        font-family: courier new, Courier, monospace;
     }
 </style>

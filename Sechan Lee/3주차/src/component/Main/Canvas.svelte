@@ -1,6 +1,7 @@
 <script>
     import { numArr } from '../../lib/store';
     import { animationWorking } from '../../lib/store';
+    import { codeColor } from '../../lib/store';
 
     let graphLeft = [];
     let indexLeft = [];
@@ -16,7 +17,6 @@
     // 애니메이션이 시작될 때만 실행
     $: if ($animationWorking) {
         drawBubbleSort();
-        $animationWorking = false; 
     }
 
     const delay = (duration) => {
@@ -25,11 +25,30 @@
         });
     };
 
+
+    const changeCodeColorBlack = (idx) => {
+        for(let i = 0; i < $codeColor.length; i++) {
+            if(i == idx) {
+                $codeColor[i] = "rgb(0, 0, 0)";
+            }
+            else {
+                $codeColor[i] = "rgba(255, 255, 255, 0)";
+            }
+        }
+    }
+
     const drawBubbleSort = async () => {
         const graphElements = document.querySelectorAll('.graph');
         
         for (let i = $numArr.length - 1; i >= 0; i--) {
+            var isSorted = true;
+
+            changeCodeColorBlack(1);
+            await delay(1000);
+
             for (let j = 0; j < i; j++) {
+                changeCodeColorBlack(2);
+
                 // 처음 기준 현재 element는 초록색이 아니면 항상 초록색으로
                 if(window.getComputedStyle(graphElements[j]).backgroundColor != "rgb(0, 128, 0)") {
                     graphElements[j].style.backgroundColor = "#008000";
@@ -37,7 +56,10 @@
                 }
 
                 if ($numArr[j] > $numArr[j + 1]) {
+                    isSorted = false;
                     // ***************애니메이션 시작*************** + transition에 따라 delay 수정하기
+                    changeCodeColorBlack(3);
+
                     graphElements.forEach(element => {
                         element.style.transition = "left 1s ease"; 
                     });
@@ -54,6 +76,8 @@
                     await delay(1000);
 
                     // ***************애니메이션 끝***************
+
+                    changeCodeColorBlack(2);
 
                     // .graph non-animation transition 
                     graphElements.forEach(element => {
@@ -80,8 +104,19 @@
                 }
             }
 
+            if(isSorted === true) {
+                changeCodeColorBlack(6);
+                for(let i = 0; i < $numArr.length; i++) {
+                    graphElements[i].style.backgroundColor = "#ffa500";
+                }
+
+                await delay(1000);
+                break;
+            }
+            
             // 정렬 완료 된 element 주황색
             graphElements[i].style.backgroundColor = "#ffa500"
+            changeCodeColorBlack(4);
             await delay(1000);
         }
 
@@ -89,6 +124,8 @@
             element.style.transition = "left 0.5s ease"; 
         });
 
+        changeCodeColorBlack(6);
+        
         // 전체 정렬 완료 후 강조 애니메이션
         for(let i = 0; i < 5; i++) {
             await delay(500);
@@ -101,6 +138,12 @@
                 }
             }
         }
+
+        for(let i = 0; i < $codeColor.length; i++) {
+            $codeColor[i] = "rgba(255, 255, 255, 0)";
+        }
+
+        $animationWorking = false; 
     };
 </script>
 
