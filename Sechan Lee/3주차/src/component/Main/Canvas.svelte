@@ -89,10 +89,17 @@
             element.style.transition = "left 0.5s ease"; 
         });
 
-        // 전체 정렬 완료 후 모든 element 하늘색
-        await delay(1000);
-        for(let i = 0; i < $numArr.length; i++) {
-            graphElements[i].style.backgroundColor = "#ADD8E6"
+        // 전체 정렬 완료 후 강조 애니메이션
+        for(let i = 0; i < 5; i++) {
+            await delay(500);
+            for(let j = 0; j < $numArr.length; j++) {
+                if(i % 2 == 0) {
+                    graphElements[j].style.backgroundColor = "#ADD8E6"
+                }
+                else {
+                    graphElements[j].style.backgroundColor = "#ffa500"
+                }
+            }
         }
     };
 </script>
