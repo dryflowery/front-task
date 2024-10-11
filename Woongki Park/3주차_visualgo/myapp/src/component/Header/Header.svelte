@@ -9,7 +9,7 @@
 
     <div class="header">
         <div class="logo">
-            {logoFront}{logoBack}
+            {logoFront}{logoBack}.net
         </div>
 
     </div>
@@ -19,10 +19,14 @@
 <style>
     .header{
         background-color: black;
+        padding: 10px;
     }
 
     .logo{
         color: aliceblue;
+        margin-left: 50px;
+        font-size: 14px;
+    
     }
 
 </style>
