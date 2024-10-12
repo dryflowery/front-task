@@ -1,5 +1,6 @@
 <script>
 
+    
 </script>
 
 <main>
@@ -7,13 +8,13 @@
 </main>
 
 <style>
-    main {
+     main {
         position: fixed;
-        bottom: 0;
+        right: 0;
+        top: 1;
+        width: 40px;
+        height: 100vh;
         background-color: black;
-        width: 100%;
-        height: 42px;
-        color:white;
+        color: white;
     }
-    
 </style>
