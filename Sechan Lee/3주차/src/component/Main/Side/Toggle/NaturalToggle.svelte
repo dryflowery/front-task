@@ -1,6 +1,6 @@
 <script>
     import { fly } from 'svelte/transition';
-    import { animationWorking } from '../../../../lib/store';
+    import { animationWorking, naturalLang } from '../../../../lib/store';
     
     let isVisible = false;
 
@@ -24,8 +24,9 @@
     </div>
     
     {#if isVisible}
+        <div id="sortType" transition:fly={{ x: 0, duration: 0 }}><b>Bubble Sort</b></div>
         <div id='dropdown' on:click={stopPropagation} transition:fly={{ x: 45, duration: 750 }}>
-    
+            <div id="naturalLang">{@html $naturalLang}</div>
         </div>
     {/if}
 </main>
@@ -54,6 +55,15 @@
         transform: rotate(180deg); 
     }
 
+    #sortType {
+        position: absolute;
+        top: -30px;
+        left: -120px;
+        min-width: 150px;
+        font-size: 1.2rem;
+        font-family: 'PT Sans', sans-serif;
+    }
+    
     #dropdown {
         display: flex; 
         position: absolute;
@@ -64,5 +74,12 @@
         background-color: #d9513C;
         z-index: 0;
         cursor: default;
+    }
+
+    #naturalLang {
+        padding: 10px 10px;
+        font-size: 12px;
+        color: white;
+        font-family: 'PT Sans', sans-serif;
     }
 </style>

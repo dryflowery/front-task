@@ -28,7 +28,7 @@
             <div class='code' style="background-color: {$codeColor[0]};">do</div>
 
             <div class='code' style="background-color: {$codeColor[1]};">&nbsp;&nbsp; <b>swapped</b> = false</div>
-            <div class='code' style="background-color: {$codeColor[1]};">&nbsp;&nbsp; for i = 1 to indexOfLastUnsortedElement-1</div>
+            <div class='code' style="background-color: {$codeColor[1]};">&nbsp;&nbsp; for i = 0 to indexOfLastUnsortedElement-1</div>
 
             <div class='code' style="background-color: {$codeColor[2]};">&nbsp;&nbsp;&nbsp;&nbsp; if leftElement &gt; rightElement</div>
 

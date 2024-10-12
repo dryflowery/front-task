@@ -1,7 +1,5 @@
 <script>
-    import { numArr } from '../../lib/store';
-    import { animationWorking } from '../../lib/store';
-    import { codeColor } from '../../lib/store';
+    import { numArr, animationWorking, codeColor, naturalLang } from '../../lib/store';
 
     let graphLeft = [];
     let indexLeft = [];
@@ -39,14 +37,18 @@
 
     const drawBubbleSort = async () => {
         const graphElements = document.querySelectorAll('.graph');
+        let swapCounter = 0;
         
         for (let i = $numArr.length - 1; i >= 0; i--) {
             var isSorted = true;
 
+            $naturalLang = `Set the <b>swapped</b> flag to false. Then iterate from index 0 to ${i} inclusive.`;
+
             changeCodeColorBlack(1);
-            await delay(1000);
+            await delay(1000);  
 
             for (let j = 0; j < i; j++) {
+                $naturalLang = `Checking if ${$numArr[j]} (index ${j}) > ${$numArr[j + 1]} (index ${j + 1}) and swap them if that is true; <b>swapped</b> = true.`;
                 changeCodeColorBlack(2);
 
                 // 처음 기준 현재 element는 초록색이 아니면 항상 초록색으로
@@ -57,7 +59,9 @@
 
                 if ($numArr[j] > $numArr[j + 1]) {
                     isSorted = false;
-                    // ***************애니메이션 시작*************** + transition에 따라 delay 수정하기
+                    swapCounter++;
+                    // ***************swap 애니메이션 시작*************** + transition에 따라 delay 수정하기
+                    $naturalLang = `Swapping the index ${j} and index ${j + 1} and set <b>swapped</b> = true. For inversion index: Add 1 to <b>swapCounter</b>, now = ${swapCounter}.`;
                     changeCodeColorBlack(3);
 
                     graphElements.forEach(element => {
@@ -75,7 +79,7 @@
 
                     await delay(1000);
 
-                    // ***************애니메이션 끝***************
+                    // ***************swap 애니메이션 끝***************
 
                     changeCodeColorBlack(2);
 
@@ -116,6 +120,7 @@
             
             // 정렬 완료 된 element 주황색
             graphElements[i].style.backgroundColor = "#ffa500"
+            $naturalLang = `Mark this element as sorted now. As at least one swap is done in this pass, we continue.`;
             changeCodeColorBlack(4);
             await delay(1000);
         }
@@ -124,6 +129,7 @@
             element.style.transition = "left 0.5s ease"; 
         });
 
+        $naturalLang = `List is sorted! Inversion Index = ${swapCounter}.`;
         changeCodeColorBlack(6);
         
         // 전체 정렬 완료 후 강조 애니메이션
