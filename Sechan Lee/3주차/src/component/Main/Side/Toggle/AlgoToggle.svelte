@@ -36,13 +36,13 @@
     
     {#if isDropdownVisible}
         <div id='dropdown' on:click={stopPropagation} transition:fly={{ x: -45, duration: 750 }}>
-            <button class='AlgoDropdownBtn' id='createBtn' on:click={toggleCreateElement}>Create(A)</button>
-            <button class='AlgoDropdownBtn' on:click={startAnimation}>Sort</button>
+            <button class='algo-dropdown-btn' id='create-btn' on:click={toggleCreateElement}>Create(A)</button>
+            <button class='algo-dropdown-btn' on:click={startAnimation}>Sort</button>
         </div>
     {/if}
 
     {#if isCreateElementVisible}
-        <div id="createElementComp" on:click={stopPropagation} transition:fly={{ x: -45, duration: 750 }}>
+        <div id="create-element-comp" on:click={stopPropagation} transition:fly={{ x: -45, duration: 750 }}>
             <CreateElement/>
         </div>
     {/if}
@@ -86,7 +86,7 @@
         z-index: 1; 
     }
 
-    .AlgoDropdownBtn {
+    .algo-dropdown-btn {
         background-color: #FF8A27; 
         color: white; 
         border: none; 
@@ -95,11 +95,11 @@
         text-align: left; 
     }
 
-    .AlgoDropdownBtn:hover {
+    .algo-dropdown-btn:hover {
         background-color: #E67E22; 
     }
 
-    #createElementComp {
+    #create-element-comp {
         position: relative;
         margin: -30px 0px 0px 970px;   
     }

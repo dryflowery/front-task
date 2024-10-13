@@ -24,9 +24,9 @@
     </div>
     
     {#if isVisible}
-        <div id="sortType" transition:fly={{ x: 0, duration: 0 }}><b>Bubble Sort</b></div>
+        <div id="sort-type" transition:fly={{ x: 0, duration: 0 }}><b>Bubble Sort</b></div>
         <div id='dropdown' on:click={stopPropagation} transition:fly={{ x: 45, duration: 750 }}>
-            <div id="naturalLang">{@html $naturalLang}</div>
+            <div id="natural-lang">{@html $naturalLang}</div>
         </div>
     {/if}
 </main>
@@ -55,7 +55,7 @@
         transform: rotate(180deg); 
     }
 
-    #sortType {
+    #sort-type {
         position: absolute;
         top: -30px;
         left: -120px;
@@ -76,7 +76,7 @@
         cursor: default;
     }
 
-    #naturalLang {
+    #natural-lang {
         padding: 10px 10px;
         font-size: 12px;
         color: white;

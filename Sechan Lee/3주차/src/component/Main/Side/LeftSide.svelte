@@ -3,7 +3,7 @@
 </script>
 
 <main>
-    <div id="AlgoToggle">
+    <div id="algo-toggle">
         <AlgoToggle/>
     </div>
 </main>
@@ -14,7 +14,7 @@
         height: 623.2px;
     }
 
-    #AlgoToggle {
+    #algo-toggle {
         padding: 538px 0px 0px 0px;
     }
 </style>

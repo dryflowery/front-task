@@ -1,5 +1,6 @@
 <script>
-    import { numArr, elementCnt } from '../../../../lib/store';
+    import { numArr, elementCnt, animationWorking, codeColor, 
+             naturalLang, isPaused, animationCnt } from '../../../../lib/store';
 
     let elementInput = '';
     let errorMessage = '';
@@ -20,6 +21,22 @@
         }
     };
 
+    const Init = () => {
+        $animationWorking = false;
+        $codeColor = Array(5).fill("rgba(255, 255, 255, 0)");
+        $naturalLang = "";
+        $isPaused = false;
+        $animationCnt = [0, 0];
+
+        const graphElements = document.querySelectorAll('.graph');
+
+        graphElements.forEach((element, idx) => {
+            element.style.transition = "left 1s ease, height 0.5s ease";
+            graphElements[idx].style.backgroundColor = "#ADD8E6";
+        });
+    }
+
+
     // 랜덤한 원소 생성
     const createRadomElements = () => {
         $numArr = [];
@@ -28,6 +45,8 @@
             const randomNum = Math.floor(Math.random() * 51);
             $numArr.push(randomNum);
         }
+
+        Init();
     };
 
     // 입력된 텍스트를 숫자로 변환하여 배열로 저장
@@ -36,7 +55,7 @@
         errorMessage = '';
         $numArr = [];
 
-        // 입력된 원소의 개수가 10개 이하인지 확인
+        // 입력된 원소의 개수가 20개 이하인지 확인
         if (elements.length > 20) {
             errorMessage = '20개 이하의 원소를 입력해주세요';
             return;
@@ -57,22 +76,24 @@
         } else {
             errorMessage = '0이상, 50이하의 원소를 입력해주세요';
         }
+
+        Init();
     };
 </script>
 
 <main class:isErrorMessage={errorMessage}>
     <span class='txt'>N</span> <span class='txt'>=</span>
-    <input type="number" id="elementCntInput" min="0" max="20" on:blur={validInput} bind:value={$elementCnt}>
-    <button id="randomBtn" on:click={createRadomElements}>Random</button>
-    <button id="sortedBtn">Sorted</button>
-    <button id="nearlyBtn">Nearly sorted</button>
-    <button id="manyBtn">Many duplicates</button>
+    <input type="number" id="element-cnt-input" min="0" max="20" on:blur={validInput} bind:value={$elementCnt}>
+    <button id="random-btn" on:click={createRadomElements}>Random</button>
+    <button id="sorted-btn">Sorted</button>
+    <button id="nearly-btn">Nearly sorted</button>
+    <button id="many-btn">Many duplicates</button>
     <span class='txt'>A</span> <span class='txt'>=</span>
-    <input type="text" id="elementInput" size="10" bind:value={elementInput}>
-    <button id="goBtn" on:click={createInputtedElements}>Go</button>
+    <input type="text" id="element-input" size="10" bind:value={elementInput}>
+    <button id="go-btn" on:click={createInputtedElements}>Go</button>
 
     {#if errorMessage}
-        <span id="errorMessage">{errorMessage}</span>
+        <span id="error-message">{errorMessage}</span>
     {/if}
 </main>
 
@@ -110,19 +131,19 @@
         background-color: #E67E22; 
     }
 
-    #elementCntInput {
+    #element-cnt-input {
         width: 50px; 
     }
 
-    #nearlyBtn {
+    #nearly-btn {
         width: 100px;
     }
 
-    #manyBtn {
+    #many-btn {
         width: 115px;
     }
 
-    #errorMessage {
+    #error-message {
         color: red;
         font-size: 0.75rem;
         cursor: default;

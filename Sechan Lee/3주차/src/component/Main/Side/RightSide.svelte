@@ -4,11 +4,11 @@
 </script>
 
 <main>
-    <div id="NaturalToggle">
+    <div id="natural-toggle">
         <NaturalToggle/>
     </div>
     
-    <div id="CodeToggle">
+    <div id="code-toggle">
         <CodeToggle/>
     </div>
 </main>
@@ -19,11 +19,11 @@
         height: 623.2px;
     }
 
-    #NaturalToggle {
+    #natural-toggle {
         padding: 355px 0px 0px 0px;
     }
 
-    #CodeToggle {
+    #code-toggle {
         padding: 3px 0px 0px 0px;
     }
 </style>
