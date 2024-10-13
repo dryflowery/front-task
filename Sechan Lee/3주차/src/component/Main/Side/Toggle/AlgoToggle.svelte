@@ -24,6 +24,7 @@
     }
 
     const startAnimation = () => {
+        isDropdownVisible = isCreateElementVisible = false;
         $animationWorking = true;
     }
 </script>

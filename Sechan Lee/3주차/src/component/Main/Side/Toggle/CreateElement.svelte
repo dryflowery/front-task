@@ -1,7 +1,6 @@
 <script>
-    import { numArr } from '../../../../lib/store';
+    import { numArr, elementCnt } from '../../../../lib/store';
 
-    let elementCnt = 0;
     let elementInput = '';
     let errorMessage = '';
 
@@ -10,14 +9,14 @@
         const target = event.target;
         const value = Number(target.value);
 
-        if (value > 10) {
-            elementCnt = 10;
-            alert("11 이상은 입력할 수 없습니다.");
+        if (value > 20) {
+            $elementCnt = 20;
+            alert("21 이상은 입력할 수 없습니다.");
         } else if (value < 0) {
-            elementCnt = 0;
+            $elementCnt = 0;
             alert("0 미만은 입력할 수 없습니다.");
         } else {
-            elementCnt = value;
+            $elementCnt = value;
         }
     };
 
@@ -25,7 +24,7 @@
     const createRadomElements = () => {
         $numArr = [];
 
-        for (let i = 0; i < elementCnt; i++) {
+        for (let i = 0; i < $elementCnt; i++) {
             const randomNum = Math.floor(Math.random() * 51);
             $numArr.push(randomNum);
         }
@@ -38,8 +37,8 @@
         $numArr = [];
 
         // 입력된 원소의 개수가 10개 이하인지 확인
-        if (elements.length > 10) {
-            errorMessage = '10개 이하의 원소를 입력해주세요';
+        if (elements.length > 20) {
+            errorMessage = '20개 이하의 원소를 입력해주세요';
             return;
         }
 
@@ -63,7 +62,7 @@
 
 <main class:isErrorMessage={errorMessage}>
     <span class='txt'>N</span> <span class='txt'>=</span>
-    <input type="number" id="elementCntInput" min="0" max="10" on:blur={validInput} bind:value={elementCnt}>
+    <input type="number" id="elementCntInput" min="0" max="20" on:blur={validInput} bind:value={$elementCnt}>
     <button id="randomBtn" on:click={createRadomElements}>Random</button>
     <button id="sortedBtn">Sorted</button>
     <button id="nearlyBtn">Nearly sorted</button>
