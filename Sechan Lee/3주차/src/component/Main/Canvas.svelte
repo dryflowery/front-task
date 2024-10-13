@@ -1,5 +1,5 @@
 <script>
-    import { numArr, animationWorking, codeColor, naturalLang, animationSpeed, isPaused } from '../../lib/store';
+    import { numArr, animationWorking, codeColor, naturalLang, animationSpeed, isPaused, elementCnt } from '../../lib/store';
 
     let graphLeft = [];
     let indexLeft = [];
@@ -65,7 +65,7 @@
                 // 처음 기준 현재 element는 초록색이 아니면 항상 초록색으로
                 if(window.getComputedStyle(graphElements[j]).backgroundColor != "rgb(0, 128, 0)") {
                     graphElements[j].style.backgroundColor = "#008000";
-                    await delay(500 * (1 / $animationSpeed));
+                    await delay(1000 * (1 / $animationSpeed));
                 }
 
                 if ($numArr[j] > $numArr[j + 1]) {
@@ -76,13 +76,9 @@
                     $naturalLang = `Swapping the index ${j} and index ${j + 1} and set <b>swapped</b> = true.<br>For inversion index: Add 1 to <b>swapCounter</b>, now = ${swapCounter}.`;
                     changeCodeColorBlack(3);
 
-                    graphElements.forEach(element => {
-                        element.style.transition = "left 1s ease"; 
-                    });
-
                     // 오른쪽 element 초록색으로
                     graphElements[j + 1].style.backgroundColor = "#008000";
-                    await delay(500 * (1 / $animationSpeed));
+                    await delay(1000 * (1 / $animationSpeed));
 
                     // swap position
                     var tmp = graphLeft[j];
@@ -99,7 +95,7 @@
                     graphElements.forEach(element => {
                         element.style.transition = "left 0s ease"; 
                     });
- 
+
                     // swap array
                     tmp = $numArr[j];
                     $numArr[j] = $numArr[j + 1];
@@ -110,13 +106,18 @@
 
                     // transition에 따라 수정
                     await delay(1000 * (1 / $animationSpeed));
+
+                    graphElements.forEach(element => {
+                        element.style.transition = "left 1s ease"; 
+                    });
                 }
                 else {
                     // 현재 element는 하늘색, 오른쪽 element는 초록색
                     graphElements[j + 1].style.backgroundColor = "#008000";
-                    await delay(500 * (1 / $animationSpeed));
+                    await delay(1000 * (1 / $animationSpeed));
+
                     graphElements[j].style.backgroundColor = "#ADD8E6";
-                    await delay(500 * (1 / $animationSpeed));
+                    await delay(1000 * (1 / $animationSpeed));
                 }
             }
 
@@ -137,28 +138,11 @@
             await delay(1000 * (1 / $animationSpeed));
         }
 
-        graphElements.forEach(element => {
-            element.style.transition = "left 0.5s ease"; 
-        });
-
         $naturalLang = `List is sorted!<br>Inversion Index = ${swapCounter}.`;
         changeCodeColorBlack(6);
-        
-        // 전체 정렬 완료 후 강조 애니메이션
-        for(let i = 0; i < 5; i++) {
-            await delay(500 * (1 / $animationSpeed));
-            for(let j = 0; j < $numArr.length; j++) {
-                if(i % 2 == 0) {
-                    graphElements[j].style.backgroundColor = "#ADD8E6"
-                }
-                else {
-                    graphElements[j].style.backgroundColor = "#ffa500"
-                }
-            }
-        }
 
-        for(let i = 0; i < $codeColor.length; i++) {
-            $codeColor[i] = "rgba(255, 255, 255, 0)";
+        for(let i = 0; i < $numArr.length; i++) {
+            graphElements[i].style.backgroundColor = "#ADD8E6"
         }
 
         $animationWorking = false; 
@@ -191,7 +175,7 @@
         bottom: 0; 
         display: flex;
         justify-content: center; 
-        transition: left 0.5s ease, height 0.5s ease; 
+        transition: left 1s ease, height 0.5s ease; 
     }
 
     .element {

@@ -19,7 +19,7 @@
 </script>
 
 <main on:click={toggleDropdown}>
-    <div id="arrow" class:isVisible={isVisible}></div>
+    <div id="arrow" class:isVisible={isVisible}>
         &lt;
     </div>
     
