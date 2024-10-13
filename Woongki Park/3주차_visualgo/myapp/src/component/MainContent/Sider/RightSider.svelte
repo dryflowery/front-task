@@ -1,14 +1,13 @@
 <script>
-
-    
+    import CodeButton from "./CodeButton.svelte"
 </script>
 
 <main>
-    
+    <div class="Code"><CodeButton/></div>
 </main>
 
 <style>
-     main {
+    main {
         position: fixed;
         right: 0;
         top: 1;
