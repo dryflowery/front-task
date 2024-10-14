@@ -9,3 +9,4 @@ export const animationSpeed = writable(1);
 export const isPaused = writable(false);
 export const animationCnt = writable([0, 0]); // [curStep, maxStep]
 export const isBegin = writable(false);
+export const isEnd = writable(false);

@@ -1,5 +1,5 @@
 <script>
-    import { animationSpeed, isPaused, animationCnt } from "../../lib/store";
+    import { animationSpeed, isPaused, animationCnt, isBegin, isEnd } from "../../lib/store";
 
     $: progressPercentage = ($animationCnt[0] == 0 && $animationCnt[1] == 0) ? 0 : ($animationCnt[0] / ($animationCnt[1] - 1)) * 100;
 
@@ -22,12 +22,11 @@
 
     // animation control section
     const goToBeginning = () => {
-        $animationCnt[0] = -10;
-        $isPaused = true;
+        $isBegin = true;
     }
 
     const goToPrev = () => {
-        $animationCnt[0]--;
+        $animationCnt[0] = Math.max($animationCnt[0] - 1, 0);
     }
 
     const changePaused = () => {
@@ -35,12 +34,11 @@
     }
 
     const goToNxt = () => {
-        $animationCnt[0]++;
+        $animationCnt[0] = Math.min($animationCnt[1] - 1, $animationCnt[0] + 1);
     }
 
     const goToEnd = () => {
-        $animationCnt[0] = $animationCnt[1];
-        $isPaused = true;
+        $isEnd = true;
     }
 
     // overlay section

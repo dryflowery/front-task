@@ -1,6 +1,6 @@
 <script>
     import { numArr, animationWorking, codeColor, naturalLang, 
-             animationSpeed, isPaused, elementCnt, animationCnt } from '../../lib/store';
+             animationSpeed, isPaused, elementCnt, animationCnt, isBegin, isEnd } from '../../lib/store';
 
     let graphLeft = [];
     let indexLeft = [];
@@ -21,14 +21,19 @@
  
 
     const delay = (duration) => {
+        return new Promise((resolve) => { setTimeout(resolve, duration); });
+    };
+
+
+    const waitPause = async () => {
         return new Promise((resolve) => {
             const checkPause = () => {
-                if (!$isPaused) {
-                    setTimeout(resolve, duration);
+                if ($isPaused === false) {
+                    setTimeout(resolve, 0);
                 } 
                 else {
                     setTimeout(() => {
-                        if ($isPaused) {
+                        if ($isPaused === true) {
                             checkPause(); 
                         } 
                         else {
@@ -153,6 +158,8 @@
         $animationCnt = [0, animationSteps.length];
 
         while($animationCnt[0] < $animationCnt[1]) {
+            await waitPause();
+
             $naturalLang = animationSteps[$animationCnt[0]].curNatural; // naturalLang 수정
             changeCodeColorBlack(animationSteps[$animationCnt[0]].curBlack); // codeToggle 수정
             
@@ -191,7 +198,7 @@
             $animationCnt[0]++;
 
             // Footer.svelte의 goToEnd가 실행된 경우 
-            if($animationCnt[0] >= $animationCnt[1]) {
+            if($isEnd === true) {
                 $animationCnt[0] = $animationCnt[1] - 1;
                 $naturalLang = animationSteps[$animationCnt[0]].curNatural; 
                 changeCodeColorBlack(animationSteps[$animationCnt[0]].curBlack); 
@@ -201,9 +208,12 @@
                 });
 
                 $numArr = [...animationSteps[$animationCnt[0]].curArr];
+
+                $isPaused = true;
+                $isEnd = false;
             }
             // Footer.svelte의 goToBeginning이 실행된 경우
-            else if($animationCnt[0] < 0) {
+            else if($isBegin === true) {
                 $animationCnt[0] = 0;
                 $naturalLang = animationSteps[$animationCnt[0]].curNatural; 
                 changeCodeColorBlack(animationSteps[$animationCnt[0]].curBlack); 
@@ -213,6 +223,9 @@
                 });
 
                 $numArr = [...animationSteps[$animationCnt[0]].curArr];
+
+                $isPaused = true;
+                $isBegin = false;
             }
         }
 
