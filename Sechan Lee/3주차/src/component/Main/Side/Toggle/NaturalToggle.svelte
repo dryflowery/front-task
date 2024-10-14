@@ -3,6 +3,16 @@
     import { animationWorking, naturalLang } from '../../../../lib/store';
     
     let isVisible = false;
+    let randomColor = getRandomColor(); 
+    
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
 
     $: if ($animationWorking) {
         isVisible = true;
@@ -18,7 +28,7 @@
     }
 </script>
 
-<main on:click={toggleDropdown}>
+<main on:click={toggleDropdown} style="--random-bg-color: {randomColor};">
     <div id="arrow" class:isVisible={isVisible}>
         &lt;
     </div>
@@ -37,7 +47,7 @@
         display: flex;
         align-items: center; 
         justify-content: center;
-        background-color: #d9513C;
+        background-color: var(--random-bg-color); 
         height: 54px;
         cursor: pointer;
     }
@@ -71,7 +81,7 @@
         left: -420px;
         height: 54px;
         width: 415px;
-        background-color: #d9513C;
+        background-color: var(--random-bg-color); /* 랜덤 배경색 */
         z-index: 0;
         cursor: default;
     }

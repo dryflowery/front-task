@@ -5,6 +5,17 @@
 
     let isDropdownVisible = false; 
     let isCreateElementVisible = false;
+    let randomColor = getRandomColor();
+    let hoverColor = '#000000'; 
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
 
     const toggleDropdown = () => {
         isDropdownVisible = !isDropdownVisible; 
@@ -18,7 +29,6 @@
         isCreateElementVisible = !isCreateElementVisible;
     }
 
-    // dropdown과 elementCreate를 클릭해도 main의 toggleDropdown 함수가 실행되지 않도록 함
     const stopPropagation = (event) => {
         event.stopPropagation(); 
     }
@@ -29,7 +39,7 @@
     }
 </script>
 
-<main on:click={toggleDropdown}>
+<main on:click={toggleDropdown} style="--random-bg-color: {randomColor}; --hover-bg-color: {hoverColor}">
     <div id="arrow" class:dropdownVisible={isDropdownVisible}>
         &gt;
     </div>
@@ -43,7 +53,7 @@
 
     {#if isCreateElementVisible}
         <div id="create-element-comp" on:click={stopPropagation} transition:fly={{ x: -45, duration: 750 }}>
-            <CreateElement/>
+            <CreateElement randomColor={randomColor}/>
         </div>
     {/if}
 </main>
@@ -55,9 +65,9 @@
         align-items: center; 
         justify-content: center;
         height: 64px;
-        background-color: #FF8A27;
         cursor: pointer;
         overflow: visible; 
+        background-color: var(--random-bg-color);
     }
 
     #arrow {
@@ -82,21 +92,21 @@
         left: 45px;
         height: 64px;
         width: 150px;
-        background-color: #FF8A27; 
         z-index: 1; 
+        background-color: var(--random-bg-color); 
     }
 
     .algo-dropdown-btn {
-        background-color: #FF8A27; 
         color: white; 
         border: none; 
         flex: 1; 
         cursor: pointer; 
-        text-align: left; 
+        text-align: left;
+        background-color: var(--random-bg-color);
     }
 
     .algo-dropdown-btn:hover {
-        background-color: #E67E22; 
+        background-color: var(--hover-bg-color); 
     }
 
     #create-element-comp {

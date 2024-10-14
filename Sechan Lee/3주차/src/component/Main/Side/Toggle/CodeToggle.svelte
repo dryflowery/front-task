@@ -3,6 +3,16 @@
     import { codeColor, animationWorking } from '../../../../lib/store';
 
     let isVisible = false;
+    let randomColor = getRandomColor(); 
+    
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
 
     $: if ($animationWorking) {
         isVisible = true;
@@ -18,13 +28,13 @@
     }
 </script>
 
-<main on:click={toggleDropdown}>
+<main on:click={toggleDropdown} style="--random-bg-color: {randomColor};">
     <div id="arrow" class:isVisible={isVisible}>
         &lt;
     </div>
     
     {#if isVisible}
-        <div id='dropdown' on:click={stopPropagation} transition:fly={{ x: 45, duration: 750 }}>
+        <div id='dropdown' on:click={stopPropagation} transition:fly={{ x: 45, duration: 750 }}  style="--random-bg-color: {randomColor};">
             <div class='code' style="background-color: {$codeColor[0]};">do</div>
 
             <div class='code' style="background-color: {$codeColor[1]};">&nbsp;&nbsp; <b>swapped</b> = false</div>
@@ -46,7 +56,7 @@
         display: flex;
         align-items: center; 
         justify-content: center;
-        background-color: #52BC69;
+        background-color: var(--random-bg-color); 
         height: 192px;
         cursor: pointer;
     }
@@ -72,7 +82,7 @@
         left: -420px; 
         height: 192px;
         width: 415px;
-        background-color: #52BC69;
+        background-color: var(--random-bg-color); 
         z-index: 0;
         cursor: default;
     }

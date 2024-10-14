@@ -2,8 +2,10 @@
     import { numArr, elementCnt, animationWorking, codeColor, 
              naturalLang, isPaused, animationCnt } from '../../../../lib/store';
 
+    export let randomColor;
     let elementInput = '';
     let errorMessage = '';
+    let hoverColor = '#000000';  
 
     // N = <input>에서 값의 범위가 유효한지 체크
     const validInput = (event) => {
@@ -35,7 +37,6 @@
             graphElements[idx].style.backgroundColor = "#ADD8E6";
         });
     }
-
 
     // 랜덤한 원소 생성
     const createRadomElements = () => {
@@ -81,7 +82,7 @@
     };
 </script>
 
-<main class:isErrorMessage={errorMessage}>
+<main class:isErrorMessage={errorMessage} style="--random-bg-color: {randomColor}; --hover-bg-color: {hoverColor};">
     <span class='txt'>N</span> <span class='txt'>=</span>
     <input type="number" id="element-cnt-input" min="0" max="20" on:blur={validInput} bind:value={$elementCnt}>
     <button id="random-btn" on:click={createRadomElements}>Random</button>
@@ -120,15 +121,16 @@
     }
 
     button {
-        background-color: #FF8A27;
+        background-color: var(--random-bg-color); 
         color: white;
         border: none;
         cursor: pointer;
         padding: 4px 8px;
+
     }
 
     button:hover {
-        background-color: #E67E22; 
+        background-color: var(--hover-bg-color); 
     }
 
     #element-cnt-input {
