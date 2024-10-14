@@ -1,9 +1,11 @@
 <script>
-    import CodeButton from "./CodeButton.svelte"
+    import CodeButton from "./CodeButton copy.svelte"
+    import NaturalExp from "./NaturalEXP.svelte";
 </script>
 
 <main>
-    <div class="Code"><CodeButton/></div>
+    <NaturalExp/>
+    <CodeButton/>
 </main>
 
 <style>
