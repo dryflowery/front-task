@@ -24,7 +24,7 @@
     </div>
     
     {#if isVisible}
-        <div id="sort-type" transition:fly={{ x: 0, duration: 0 }}><b>Bubble Sort</b></div>
+        <div id="bubble-sort" transition:fly={{ x: 0, duration: 0 }}><b>Bubble Sort</b></div>
         <div id='dropdown' on:click={stopPropagation} transition:fly={{ x: 45, duration: 750 }}>
             <div id="natural-lang">{@html $naturalLang}</div>
         </div>
@@ -55,7 +55,7 @@
         transform: rotate(180deg); 
     }
 
-    #sort-type {
+    #bubble-sort {
         position: absolute;
         top: -30px;
         left: -120px;

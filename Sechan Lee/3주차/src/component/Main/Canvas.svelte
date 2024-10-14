@@ -76,12 +76,12 @@
         for (let i = tmpArr.length - 1; i >= 0; i--) {
             var isSorted = true;
 
-            tmpNatural = `Set the <b>swapped</b> flag to false.<br>Then iterate from index 0 to ${i} inclusive.`;
+            tmpNatural = `<b>swapped</b>를 false로 설정합니다.<br>인덱스 0부터 ${i}까지 비교를 시작합니다.`;
             tmpBlack = 1;
             pushAnimationSteps(tmpArr, tmpColor, 0, 0, tmpNatural, tmpBlack);
 
             for (let j = 0; j < i; j++) {
-                tmpNatural = `Checking if ${tmpArr[j]} (index ${j}) > ${tmpArr[j + 1]} (index ${j + 1}) and swap them if that is true; <b>swapped</b> = true.`;
+                tmpNatural = `${tmpArr[j]} (인덱스 ${j}) > ${tmpArr[j + 1]} (인덱스 ${j + 1})이 true면 두 원소를 교환하고, <b>swapped</b>를 true로 설정합니다`;
                 tmpBlack = 2;
                 tmpColor[j + 1] = "#008000";
 
@@ -98,7 +98,7 @@
 
                     // ***************swap 애니메이션 시작*************** 
                     // 오른쪽 element 초록색으로
-                    tmpNatural = `Swapping the index ${j} and index ${j + 1} and set <b>swapped</b> = true.<br>For inversion index: Add 1 to <b>swapCounter</b>, now = ${tmpSwapCounter}.`;
+                    tmpNatural = `인덱스 ${j}과 인덱스 ${j + 1}을(를) 교환하고, <b>swapped</b>를 true로 설정합니다.<br><b>swapCounter</b>를 1만큼 증가시킵니다. 현재 <b>swapCounter</b> = ${tmpSwapCounter}.`;
                     tmpBlack = 3;
                     pushAnimationSteps(tmpArr, tmpColor, 0, 0, tmpNatural, tmpBlack);
 
@@ -114,13 +114,10 @@
 
                     // swap 후 왼쪽 element 하늘색으로
                     tmpColor[j] = "#ADD8E6";
-                    tmpBlack = 2;
-                    pushAnimationSteps(tmpArr, tmpColor, 0, 0, tmpNatural, tmpBlack);
                 }
                 else {
                     // 현재 element는 하늘색, 오른쪽 element는 초록색
                     tmpColor[j] = "#ADD8E6";
-                    pushAnimationSteps(tmpArr, tmpColor, 0, 0, tmpNatural, tmpBlack);
                 }
             }
 
@@ -136,7 +133,7 @@
             }
             
             // 정렬 완료 된 element 주황색으로
-            tmpNatural = `Mark this element as sorted now.<br>As at least one swap is done in this pass, we continue.`;
+            tmpNatural = `이 요소를 이제 정렬된 상태(주황색)로 표시합니다.<br>이번 정렬에서 적어도 한 번의 교환이 발생했으므로, 계속 진행합니다.`;
             tmpColor[i] = "#ffa500";
             tmpBlack = 4;
             pushAnimationSteps(tmpArr, tmpColor, 0, 0, tmpNatural, tmpBlack);
@@ -146,7 +143,7 @@
         for(let i = 0; i < $numArr.length; i++) {
             tmpColor[i] = "#ADD8E6";
         }
-        tmpNatural = `List is sorted!<br>Inversion Index = ${tmpSwapCounter}.`;
+        tmpNatural = `정렬이 완료되었습니다!<br>원소가 교환된 횟수 = ${tmpSwapCounter}.`;
         tmpBlack = 6;
         pushAnimationSteps(tmpArr, tmpColor, 0, 0, tmpNatural, tmpBlack);
     };
@@ -236,6 +233,12 @@
 
 <style>
     main {
+        height: 100%; 
+        width: 100%;   
+        background-color: #eeeeee;
+    }
+
+    table {
         display: flex;
         position: relative; 
         height: 300px; 
