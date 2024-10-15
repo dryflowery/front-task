@@ -1,17 +1,19 @@
 <script>
     import { fly } from 'svelte/transition';
-    import { animationWorking, naturalLang } from '../../../../lib/store';
+    import { animationWorking, naturalLang, isUsedColor, randomColorArr } from '../../../../lib/store';
     
     let isVisible = false;
     let randomColor = getRandomColor(); 
     
     function getRandomColor() {
-        const letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
+        while(true) {
+            let randomIndex = Math.floor(Math.random() * $randomColorArr.length);
+
+            if($isUsedColor[randomIndex] == false) {
+                $isUsedColor[randomIndex] = true;
+                return $randomColorArr[randomIndex];
+            }
         }
-        return color;
     }
 
     $: if ($animationWorking) {

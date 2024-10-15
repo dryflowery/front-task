@@ -1,6 +1,6 @@
 <script>
     import { fly } from 'svelte/transition';
-    import { animationWorking } from '../../../../lib/store';
+    import { animationWorking, isUsedColor, randomColorArr } from '../../../../lib/store';
     import CreateElement from './CreateElement.svelte';
 
     let isDropdownVisible = false; 
@@ -9,12 +9,14 @@
     let hoverColor = '#000000'; 
 
     function getRandomColor() {
-        const letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
+        while(true) {
+            let randomIndex = Math.floor(Math.random() * $randomColorArr.length);
+
+            if($isUsedColor[randomIndex] == false) {
+                $isUsedColor[randomIndex] = true;
+                return $randomColorArr[randomIndex];
+            }
         }
-        return color;
     }
 
     const toggleDropdown = () => {

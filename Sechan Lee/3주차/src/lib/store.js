@@ -10,3 +10,7 @@ export const isPaused = writable(false);
 export const animationCnt = writable([0, 0]); // [curStep, maxStep]
 export const isBegin = writable(false);
 export const isEnd = writable(false);
+export const randomColorArr = writable(["rgb(217, 81, 60)", "rgb(214, 87, 117)", "rgb(255, 138, 39)", 
+                                        "rgb(254, 197, 21)", "rgb(75, 101, 186)", "rgb(46, 187, 209)", 
+                                        "rgb(82, 188, 105)"]);
+export const isUsedColor = writable(Array(7).fill(false));

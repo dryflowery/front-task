@@ -1,7 +1,21 @@
 <script>
-    import { animationSpeed, isPaused, animationCnt, isBegin, isEnd } from "../../lib/store";
+    import { animationSpeed, isPaused, animationCnt, 
+             isBegin, isEnd, randomColorArr, isUsedColor } from "../../lib/store";
 
     $: progressPercentage = ($animationCnt[0] == 0 && $animationCnt[1] == 0) ? 0 : ($animationCnt[0] / ($animationCnt[1] - 1)) * 100;
+
+    let randomColor = getRandomColor();
+
+    function getRandomColor() {
+        while(true) {
+            let randomIndex = Math.floor(Math.random() * $randomColorArr.length);
+
+            if($isUsedColor[randomIndex] == false) {
+                $isUsedColor[randomIndex] = true;
+                return $randomColorArr[randomIndex];
+            }
+        }
+    }
 
     // range의 왼쪽 절반은 [1, 10], 오른쪽 절반은 [11, 1000]
     const updateSpeed = (event) => {
@@ -143,7 +157,7 @@
         <div class="overlay-background" on:click={closeOverlay}></div>
 
         <div id="about" class="overlay">
-            <div id="overlay-header">
+            <div id="overlay-header" style="--random-bg-color: {randomColor};">
                 <div id="overlay-title">
                     {#each overlayInfo as info}
                         {#if info.visible === true}
@@ -329,7 +343,7 @@
     }
 
     #overlay-header {
-        background-color: #D65775;
+        background-color: var(--random-bg-color); 
         height: 50px;; 
         display: flex; 
     }
