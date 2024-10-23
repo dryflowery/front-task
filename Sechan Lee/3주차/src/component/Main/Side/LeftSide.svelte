@@ -15,6 +15,6 @@
     }
 
     #algo-toggle {
-        padding-top: 1450%;
+        padding-top: 78vh;
     }
 </style>

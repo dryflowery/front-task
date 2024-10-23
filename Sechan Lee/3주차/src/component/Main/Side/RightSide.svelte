@@ -20,10 +20,10 @@
     }
 
     #natural-toggle {
-        padding-top: 980%;
+        padding-top: 53vh;
     }
 
     #code-toggle {
-        padding-top: 10%;
+        padding-top: 0.5vh;
     }
 </style>
