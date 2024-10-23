@@ -21,7 +21,7 @@
 <style>
     main {
         display: grid;
-        grid-template-rows: 40px 623.2px 40px;
+        grid-template-rows: 40px auto 40px;
         height: 100vh; 
     }
 

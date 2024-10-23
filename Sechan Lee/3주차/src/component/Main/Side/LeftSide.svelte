@@ -11,10 +11,10 @@
 <style>
     main {
         background-color: black;
-        height: 623.2px;
+        height: calc(100vh - 80px);
     }
 
     #algo-toggle {
-        padding: 538px 0px 0px 0px;
+        padding-top: 1450%;
     }
 </style>
