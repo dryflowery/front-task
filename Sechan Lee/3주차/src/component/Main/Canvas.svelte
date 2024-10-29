@@ -174,7 +174,7 @@
                 let swap2 = animationSteps[$animationCnt[0]].curSwap2;
                 
                 graphElements.forEach(element => {
-                    element.style.transition = "left 1s ease";
+                    element.style.transition = `left ${(1 / $animationSpeed)}s ease`;
                 });
 
                 // swap animation
@@ -265,7 +265,7 @@
         bottom: 0; 
         display: flex;
         justify-content: center; 
-        transition: left 1s ease, height 0.5s ease; 
+        transition: left 1s ease, height 1s ease; 
     }
 
     .element {
