@@ -65,7 +65,7 @@
 
     #sign-in-button {
         padding: 10px 20px; 
-        background-color: #000000; 
+        background-color: #3d444d; 
         color: white;             
         border: 1px solid white;          
         border-radius: 10px;            
@@ -74,6 +74,6 @@
     }
 
     #sign-in-button:hover {
-        background-color: #3d444d; 
+        background-color: #4a5457; 
     }   
 </style>
