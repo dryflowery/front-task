@@ -1,0 +1,132 @@
+<script>
+    import AlgorithmList from "./AlgorithmList.svelte";
+    import {isListVisible} from "../../lib/store";
+    
+    const toggleAlgorithmList = () => {
+        $isListVisible = !$isListVisible;
+    };
+</script>
+
+<main>
+    <div id="menu-toggle-container">
+        <div id="menu-circle" on:click={toggleAlgorithmList}>
+            <img src="assets/menu.png" alt="" id="menu-toggle-icon">
+        </div>
+    </div>
+
+    <div class="algorithm-list" class:visible={$isListVisible}>
+        <AlgorithmList/>
+    </div>
+
+    <div id="site-icon-container">
+        <div id="site-icon"></div>
+    </div>
+
+    <div id="site-name-container">
+        <div id="site-name">MoleuGo</div>
+    </div>
+
+    <div id="sign-in-container">
+        <button id="sign-in-btn" class="sign-btn">로그인</button>
+    </div>
+
+    <div id="sign-up-container">
+        <button id="sign-up-btn" class="sign-btn">회원가입</button>
+    </div>
+</main>
+
+<style>
+    main {
+        height: 79px;
+        display: flex;
+        border-bottom: 1px solid #3d444d;
+        background-color: #000000;
+    }
+
+    #menu-toggle-container {
+        padding: 15px 0px 0px 15px;
+    }
+
+    #menu-circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    #menu-circle:hover {
+        background-color: #4d4d4d;
+    }
+
+    .algorithm-list {
+        position: absolute;
+        top: 81px;
+        left: -401px; 
+        width: 400px;
+        transition: left 0.5s ease;
+    }
+
+    .visible {
+        left: 0; 
+    }
+
+    #site-icon-container {
+        padding: 15px 0px 0px 25px;
+    }
+
+    #site-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 5px solid #3d444d;
+        background-color: #8d8d8d;
+        cursor: pointer;
+    }
+
+    #site-name-container {
+        padding: 25px 0px 0px 15px;
+    }
+
+    #site-name {
+        color: #FFFFFF;
+        font-size: 1.5rem;
+        font-family: 'Montserrat', sans-serif;
+        cursor: pointer;
+    }
+
+    .sign-btn {
+        padding: 10px 20px;
+        color: #FFFFFF;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1rem;
+        border: 2px solid #FFFFFF;
+    }
+
+    .sign-btn:hover {
+        background-color: #1a1a1a;
+        border: 2px solid #cccccc;
+        color: #cccccc;
+    }
+
+    #sign-in-container {
+        padding: 20px 0px 0px 1430px;
+    }
+
+    #sign-in-btn {
+        padding: 12px 20px;
+        background-color: transparent;
+        border: none;
+    }
+
+    #sign-up-container {
+        padding: 20px 0px 0px 10px;
+    }
+
+    #sign-up-btn {
+        background-color: #000000;
+    }
+</style>

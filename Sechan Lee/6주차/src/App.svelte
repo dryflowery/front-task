@@ -1,35 +1,12 @@
 <script>
-  import Footer from "./component/Footer.svelte";
-  import Header from "./component/Header.svelte";
-  import Main1 from "./component/Main1.svelte";
+  import MainPage1 from "./component/views/MainPage1.svelte";
+  import MainPage2 from "./component/views/MainPage2.svelte";
 </script>
 
 <main>
-  <div id="Header-container">
-    <Header/>
-  </div>
-
-  <div id="Main-container">
-    <Main1/>
-  </div>
-
-  <div id="Footer-container">
-    <Footer/>
-  </div>
+    <MainPage2/>
 </main>
 
 <style>
-    main {
-        display: grid;
-        height: 100vh; 
-        grid-template-rows: 80px calc(100vh - 120px) 40px;
-    }
 
-    #Header-container {
-        z-index: 1;
-    }
-    
-    #Footer-container {
-        z-index: 1;
-    }
 </style>

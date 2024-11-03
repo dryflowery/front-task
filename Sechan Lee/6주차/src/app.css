@@ -2,10 +2,40 @@
   font: 100% 'Montserrat', sans-serif;
 }
 
-
 body {
   margin: 0;
   padding: 0;
   width: 100vw;
   height: 100vh;
+}
+
+main {
+  display: grid;
+  height: 100vh; 
+  grid-template-rows: 80px 1fr 40px;
+}
+
+.Header-container {
+  z-index: 1;
+  top: 0;
+}
+
+.Footer-container {
+  z-index: 1;
+  bottom: 0;
+}
+
+.list-visible {
+  transform: translateX(400px); 
+  transition: transform 0.5s ease; 
+}
+
+.list-invisible {
+  transform: translateX(0px); 
+  transition: transform 0.5s ease; 
+}
+
+.main-container {
+  background-color: #000000;
+  color: white;
 }

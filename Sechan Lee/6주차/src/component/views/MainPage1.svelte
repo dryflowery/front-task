@@ -1,38 +1,47 @@
 <script>
-
+    import Footer from "../fixed/Footer.svelte";
+    import Header from "../fixed/Header.svelte";
+    import {isListVisible} from "../../lib/store";
 </script>
   
 <main>
-    <div id="main1-left-container">
-        <div id="main-txt">궁금한 알고리즘을 찾아보세요</div>
-        <div id="sub-txt">알고리즘의 시각화를 실제로 경험합니다</div>
-        <input type="text" placeholder="Search algorithms...">
+    <div class="Header-container">
+        <Header/>
+    </div>
 
-        <div>
-            <button id="learn-more-btn">Learn More</button>
-            <button id="search-start-btn">Search Start</button>
+    <div class="main-container" class:list-visible={$isListVisible} class:list-invisible={!$isListVisible}>
+        <div id="main1-left-container">
+            <div id="main-txt">알고리즘의 시각화를 경험해보세요</div>
+            <div id="sub-txt">궁금한 알고리즘 검색하기</div>
+            <input type="text" placeholder="Search algorithms...">
+    
+            <div>
+                <button id="learn-more-btn">더 알아보기</button>
+                <button id="search-start-btn">검색</button>
+            </div>
+        </div>
+     
+        <div id="main1-right-container">
+             <div id="algo-gif-container">
+                <img src="assets/algoGif.gif" alt="visualized algorithm" id="algo-gif">
+             </div>
         </div>
     </div>
- 
-    <div id="main1-right-container">
-         <div id="algo-gif-container">
-            <img src="assets/algoGif.gif" alt="visualized algorithm" id="algo-gif">
-         </div>
+
+    <div class="Footer-container">
+        <Footer/>
     </div>
  </main>
  
   
 <style>
-    main {
-        height: calc(100vh - 120px);
-        background-color: #000000; 
+    .main-container {
         display: grid;
         grid-template-columns: 1030px auto;
-        color: white;
     }
 
     #main1-left-container {
-        padding: 250px 0px 0px 250px;
+        padding: 250px 0px 0px 190px;
     }
 
     #main-txt {
@@ -49,7 +58,7 @@
         padding: 10px;
         margin-top: 20px;
         border-radius: 5px;
-        border: 1px solid #FFFFFF;
+        border: 1px solid #2c3138;
         width: 420px;
         height: 25px;
         background-color: #151b23;
