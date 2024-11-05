@@ -1,6 +1,7 @@
 <script>
     import Footer from "../fixed/Footer.svelte";
     import Header from "../fixed/Header.svelte";
+    import { push } from "svelte-spa-router";
     import {isListVisible} from "../../lib/store";
 </script>
   
@@ -16,7 +17,7 @@
             <input type="text" placeholder="Search algorithms...">
     
             <div>
-                <button id="learn-more-btn">더 알아보기</button>
+                <button id="learn-more-btn" on:click={() => push('/MainPage2')}>더 알아보기</button>
                 <button id="search-start-btn">검색</button>
             </div>
         </div>

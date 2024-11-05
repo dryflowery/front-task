@@ -1,5 +1,6 @@
 <script>
     import AlgorithmList from "./AlgorithmList.svelte";
+    import { push } from "svelte-spa-router";
     import {isListVisible} from "../../lib/store";
     
     const toggleAlgorithmList = () => {
@@ -23,7 +24,7 @@
     </div>
 
     <div id="site-name-container">
-        <div id="site-name">MoleuGo</div>
+        <div id="site-name" on:click={() => push('/')}>MoleuGo</div>
     </div>
 
     <div id="sign-in-container">

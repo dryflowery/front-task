@@ -1,12 +1,13 @@
 <script>
-  import MainPage1 from "./component/views/MainPage1.svelte";
-  import MainPage2 from "./component/views/MainPage2.svelte";
+  import Router from 'svelte-spa-router';
+  import MainPage1R from "./routes/MainPage1R.svelte";
+  import MainPage2R from "./routes/MainPage2R.svelte";
+
+  const routes = {
+    '/': MainPage1R,
+    '/MainPage2': MainPage2R
+  };
 </script>
 
-<main>
-    <MainPage2/>
-</main>
+<Router {routes}/>
 
-<style>
-
-</style>
