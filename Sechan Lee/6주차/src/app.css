@@ -7,6 +7,7 @@ body {
   padding: 0;
   width: 100vw;
   height: 100vh;
+  background-color: #000000; 
 }
 
 main {
@@ -25,13 +26,27 @@ main {
   bottom: 0;
 }
 
-.list-visible {
-  transform: translateX(400px); 
+.main1-list-visible {
+  transform: scale(0.85);
+  transform-origin: bottom right; 
+  /* transform: translateX(210px);  */
   transition: transform 0.5s ease; 
 }
 
-.list-invisible {
-  transform: translateX(0px); 
+.main1-list-invisible {
+  transform: scale(1.0);
+  transform-origin: bottom right;
+  /* transform: translateX(0px);  */
+  transition: transform 0.5s ease; 
+}
+
+.main2-list-visible {
+  transform: translateX(210px); 
+  transition: transform 0.5s ease; 
+}
+
+.main2-list-invisible {
+  transform: translateX(0px);  
   transition: transform 0.5s ease; 
 }
 

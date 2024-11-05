@@ -9,7 +9,7 @@
         <Header/>
     </div>
 
-    <div class="main-container" class:list-visible={$isListVisible} class:list-invisible={!$isListVisible}>
+    <div class="main-container" class:main1-list-visible={$isListVisible} class:main1-list-invisible={!$isListVisible}>
         <div id="main1-left-container">
             <div id="main-txt">알고리즘의 시각화를 경험해보세요</div>
             <div id="sub-txt">궁금한 알고리즘 검색하기</div>

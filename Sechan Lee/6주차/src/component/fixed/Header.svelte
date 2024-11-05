@@ -63,10 +63,12 @@
 
     .algorithm-list {
         position: absolute;
-        top: 81px;
+        top: 80px;
         left: -401px; 
         width: 400px;
+        height: calc(100vh - 120px);
         transition: left 0.5s ease;
+        z-index: 1;
     }
 
     .visible {
