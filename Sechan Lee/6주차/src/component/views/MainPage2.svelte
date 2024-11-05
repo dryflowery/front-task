@@ -30,7 +30,7 @@
                             <span style="color: rgba(0, 255, 0, 1);">Lv. 3</span> 다익스트라 부수기 <br>
                             <span style="color: rgba(0, 255, 0, 1);">Lv. 3</span> 최근 알고리즘 복습 <br>
                         </div>
-                        <i class="fa-solid fa-lock icon" style="font-size: 100px;"></i>
+                        <img src="assets/lock.png" alt="lock" style="width: 100px;">
                         <div class="info-text">로그인 하고 컨텐츠 보기</div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                     최근 알고리즘
                     <div class="info-square">
                         <div class="background-content"></div>
-                        <i class="fa-solid fa-lock icon" style="font-size: 100px;"></i>
+                        <img src="assets/lock.png" alt="lock" style="width: 100px;">
                         <div class="info-text">로그인 하고 컨텐츠 보기</div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                     마이 페이지
                     <div class="info-square">
                         <div class="background-content"></div>
-                        <i class="fa-solid fa-lock icon" style="font-size: 100px;"></i>
+                        <img src="assets/lock.png" alt="lock" style="width: 100px;">
                         <div class="info-text">로그인 하고 컨텐츠 보기</div>
                     </div>
                 </div>
@@ -75,8 +75,8 @@
             <div class="title-font">
                 로드맵
                 <div id="roadmap-info">
-                    <i class="fa-solid fa-lock" style="font-size: 100px;"></i>
-                    <div class="info-text" style="font-size: 1.2rem;">로그인 하고 컨텐츠 보기</div>
+                    <img src="assets/lock.png" alt="lock" style="width: 100px;">
+                    <div class="info-text" style="font-size: 1.1rem;">로그인 하고 컨텐츠 보기</div>
                 </div>
             </div>
         </div>
@@ -132,11 +132,6 @@
         z-index: 1; 
         filter: brightness(0.3) saturate(0.5);  
         overflow: hidden;
-    }
-
-    .icon {
-        position: relative;
-        z-index: 2;
     }
 
     .info-text {
